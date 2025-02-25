@@ -1,6 +1,8 @@
 # OCTADriverAssistantBot
-OCTA is a Friendly Driver assitant bot for all your vehicle fault and recovery needs
 🚗 OCTA - Onboard Car Troubleshooting Assistant
+OCTA is a Friendly Driver assitant bot for all your vehicle fault and recovery needs
+Note: Use of Codepen Templates was made to develop some frontpages in this bot. 
+
 OCTA (Onboard Car Troubleshooting Assistant) is an AI-powered voice assistant and fault prediction chatbot designed for in-vehicle deployment on a vehicle dashboard. The application enables seamless interaction between the driver and the vehicle’s diagnostic system, leveraging LLMs (Large Language Models), RAG-based reasoning, and voice-based AI assistance.
 
 📌 Features
