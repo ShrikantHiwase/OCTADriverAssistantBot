@@ -1,0 +1,177 @@
+html,
+body {
+  overflow: hidden;
+  background: #000;
+  
+}
+
+body {
+  position: relative;
+  background: #000;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+#mes1,
+#mes2 {
+  padding: 1.6rem;
+  position: absolute;
+  opacity: 0;
+}
+
+.siri {
+  animation-name: fadeIn;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
+}
+
+
+
+.send-number-button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4fc3f7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.send-number-button:hover {
+  background-color: #039be5;
+}
+
+
+
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+#list {
+  padding: 1.6rem;
+  max-height: 60%;
+  opacity: 0;
+  display: none;
+  position: absolute;
+  overflow-y: scroll;
+}
+
+.slideUp {
+  opacity: 1;
+  animation-name: slideUp;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+ul {
+  margin: 1.6rem 0;
+}
+
+ul li {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+ul li a {
+  font-size: 1.2rem;
+}
+
+
+/* ---------- Typewriter Effect that Allows Wrapping ---------- */
+.typewriter-text {
+    display: block;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    border-right: 2px solid #fff; /* blinking caret */
+    /* We'll only animate the caret separately */
+    animation: blinkCaret 0.75s step-end infinite;
+    /* No white-space: nowrap, so text can wrap */
+  }
+  
+  @keyframes blinkCaret {
+    from, to { border-color: transparent; }
+    50% { border-color: #fff; }
+  }
+  
+  .typewriter-text span {
+    opacity: 0;
+    display: inline-block;
+    animation: fadeIn 0.5s forwards;
+  }
+  
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  
+
+/* ---------- Back Button Styles ---------- */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10000; /* high z-index to ensure it's on top */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+  }
+  
+  .back-button:active {
+    transform: scale(1);
+  }
+  
+  .back-button .arrow {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  

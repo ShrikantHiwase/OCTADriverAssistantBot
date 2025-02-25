@@ -1,0 +1,434 @@
+
+
+#primary-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	background: linear-gradient(-45deg, #753f0c, #382468, #294c7a, #407a10e7);
+	background-size: 300% 300%;
+	animation: gradientAnimation 8s ease infinite; /* Smooth background animation */
+    justify-content: flex-start;
+    padding-top: 350px;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .back-button {
+	position: absolute;
+	top: 200px;
+	left: 500px;
+	width: 50px;
+	height: 50px;
+	background-color: #ffffff42; /* White background */
+	border: 2px solid #ccc; /* Light gray border */
+	border-radius: 50%; /* Circular button */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	color: #333; /* Dark gray icon */
+	cursor: pointer;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease-in-out;
+  }
+  
+  .back-button:hover {
+	background-color: #949191; /* Light gray hover */
+	transform: scale(1.1)
+  }
+  
+
+  
+/* Ensure spacing is applied only inside .centered-pen */
+.centered-pen > .display-3 {
+    font-size: 2.5rem;
+    margin-bottom: 0px; /* Adds space below "Hello there!" */
+  }
+
+.centered-pen > .lead {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+  /* Adjust personal-assistant to fit well */
+  .personal-assistant {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  /* Adjust OCTA position and scaling */
+  .OCTA {
+    position: absolute;
+    bottom: 50px;
+    width: 15vw; /* Scales proportionally */
+    height: 18vw;
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 40%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    animation: breathe-and-jump 3s linear infinite;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  /* Ensure platform is correctly placed */
+  .platform {
+    transform: rotateX(70deg);
+    width: 20vw;
+    height: 20vw;
+    max-width: 100px;
+    max-height: 100px;
+    box-shadow: 0 0 100px #fff, 0 0 15px #fff inset;
+    animation: jump-pulse 3s linear infinite;
+  }
+  
+
+.OCTA::before {
+	content: '';
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	width: calc(100% + 3px);
+	height: calc(100% + 2px);
+	background-color: #18c;
+	background: linear-gradient(to bottom, #5fc, #1a8);
+	background: -webkit-linear-gradient(to bottom, #5cf, #18c);
+	border-radius: 45%;
+	opacity: 0;
+	transition: 0.3s linear all;
+}
+.OCTA > .eyes { position: relative; }
+.OCTA > .eyes > .eye {
+	position: absolute;
+	top: 20px;
+	width: 20px;
+	height: 25px;
+	border-radius: 15px;
+	background-color: #fff;
+	box-shadow: 0 0 7px rgba(255, 255, 255, 0.5);
+	animation: blink 5s linear infinite;
+}
+.OCTA > .eyes > .eye.left { left: 23%; }
+.OCTA > .eyes > .eye.right { right: 23%; }
+
+
+
+/* Platforms */
+.platform {
+	transform: rotateX(70deg);
+	width: 125px;
+	height: 125px;
+	box-shadow: 0 0 100px #fff,
+		         0 0 15px #fff inset;
+	animation: jump-pulse 3s linear infinite;
+}
+.platform,
+.command-list > li::before {
+	border-radius: 50%;
+	transition: 0.2s linear all;
+}
+.command-list > li::before {
+	content: '';
+	position: absolute;
+	bottom: -35px;
+	left: 50%;
+	width: 65px;
+	height: 65px;
+	transform: translate(-50%) rotateX(70deg);
+	box-shadow: 0 0 50px #fff,
+		         0 0 15px #fff inset;
+}
+
+/* Hover */
+.OCTA:not(.active):hover {
+	animation: shake-to-alert 0.5s linear;
+	height: 105px;
+	transform: translateY(-4px);
+}
+.OCTA:not(.active):hover,
+.OCTA:not(.active):hover > .eyes > .eye {
+	border-color: #fc5;
+	box-shadow: 0 0 5px #fc5;
+}
+.OCTA:not(.active):hover + .platform {
+	box-shadow: 0 0 100px #fc5,
+		         0 0 15px #fc5 inset;
+	animation: shake-pulse 0.5s linear;
+}
+
+/* Awaiting Command */
+.OCTA.active { animation: bounce-then-breathe 5s linear infinite; }
+.OCTA.active::before { opacity: 1; }
+.OCTA.active,
+.OCTA.active > .eyes > .eye {
+	border-color: #5fc;
+	box-shadow: 0 0 5px #5fc;
+}
+.OCTA.active + .platform {
+	box-shadow: 0 0 100px #5fc,
+		         0 0 25px #5fc inset;
+	animation: bounce-pulse 5s linear;
+}
+
+/* Deactivation */
+.OCTA.inactive {
+	animation: deactivate 0.75s linear,
+				  breathe-and-jump 3s linear infinite;
+}
+.OCTA.inactive + .platform {
+	animation: deactivate-platform 0.75s linear;
+}
+
+/* Command List */
+.command-list {
+	position: absolute;
+	bottom: 25px;
+	right: 50px;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	z-index: 0;
+}
+.command-list > li {
+	display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+	width: 65px;
+	height: 65px;
+	align-items: center;
+    justify-content: center;
+	line-height: 37px;
+	font-size: 25px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	box-shadow: 0 0 5px #fff;
+	margin: 10px 12px;
+	cursor: pointer;
+	opacity: 0;
+	transition: transform 0.2s ease-in-out;
+}
+
+
+
+.OCTA.active ~ .command-list > li {
+	display: inline-block;
+	animation: fade-in 1s linear forwards;
+}
+.command-list > li:hover {
+	border-color: #5cf;
+	box-shadow: 0 0 5px #5cf;
+	transform: scale(1.2); /* Slight zoom effect on hover */
+}
+.command-list > li:hover::before {
+	box-shadow: 0 0 50px #5cf,
+		         0 0 15px #5cf inset;
+}
+.command-list li svg {
+    font-size: 40px; 
+	line-height: 1; 
+    width: 80%; 
+    height: 80%; 
+}
+
+
+.hover-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.hover-text {
+    font-size: 28px;
+    color: #f7f7f7;
+    font-weight: bold;
+    position: absolute;
+    top: 100px; /* Adjust this based on your layout */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none; /* Ensures no interaction issues */
+}
+
+.hover-text.show {
+    opacity: 1;
+}
+
+.command-list > li:hover > i { color: #5cf; }
+.command-list > li:nth-child(1) { transform: translateX(235px) translateY(-160px); }
+.command-list > li:nth-child(2) { transform: translateX(-0px) translateY(-15px); }
+.command-list > li:nth-child(3) { transform: translateX(-50px) translateY(-110px); }
+.command-list > li:nth-child(4) { transform: translateX(60px) translateY(-110px); }
+.command-list > li:nth-child(5) { transform: translateX(10px) translateY(-15px); }
+
+/* Feedback Modal - Increased Size */
+.feedback-modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: rgba(177, 130, 130, 0.95);
+	color: white;
+	padding: 25px;
+	border-radius: 20px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+	z-index: 1000;
+	text-align: center;
+	width: 500px;
+	height: 420px;
+	transition: opacity 0.3s ease-in-out;
+  }
+  
+  .modal-content {
+	position: relative;
+	animation: popIn 0.3s ease-out;
+  }
+  
+  @keyframes popIn {
+	0% { transform: scale(0.8); opacity: 0; }
+	100% { transform: scale(1); opacity: 1; }
+  }
+  
+  /* Emoji Rating System */
+  .rating-emojis {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	font-size: 35px;
+	cursor: pointer;
+	margin: 15px 0;
+  }
+  
+  .emoji {
+	transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  
+  .emoji:hover {
+	transform: scale(1.4);
+	color: yellow;
+  }
+  
+  .emoji.selected {
+	transform: scale(1.5);
+	color: gold;
+  }
+  
+  /* Feedback Input */
+  .quirky-input {
+	width: 100%;
+	height: 80px;
+	margin: 15px 0;
+	padding: 10px;
+	border-radius: 10px;
+	border: none;
+	background: #444;
+	color: white;
+	outline: none;
+	font-size: 16px;
+  }
+  
+  /* Submit Button */
+  .quirky-button {
+	background: #ff0080;
+	padding: 12px;
+	border-radius: 10px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: 0.3s ease-in-out;
+  }
+  
+  .quirky-button:hover {
+	background: #ff4da6;
+  }
+  
+
+/* Animations */
+@keyframes fade-in {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@keyframes breathe {
+	0%, 100% {
+		height: 95px;
+		transform: translateY(0);
+	}
+	50% {
+		height: 100px;
+		transform: translateY(-5px);
+	}
+}
+@keyframes bounce-then-breathe {
+	0%, 5%, 10%, 15% { transform: translateY(0); }
+	2.5%, 7.5%, 12.5% { transform: translateY(-15px); }
+	20%, 40%, 60%, 80%, 100% {
+		height: 95px;
+		transform: translateY(0);
+	}
+	30%, 50%, 70%, 90% {
+		height: 100px;
+		transform: translateY(-5px);
+	}
+}
+@keyframes shake-pulse {
+	0%, 20%, 40%, 60%, 80%, 100% { box-shadow: 0 0 100px #fc5, 0 0 15px #fc5 inset; }
+	10%, 25%, 35%, 50%, 65% { box-shadow: 0 0 115px #fc5, 0 0 15px #fc5 inset; }
+	15%, 30%, 45%, 55%, 70% { box-shadow: 0 0 95px #fc5, 0 0 15px #fc5 inset; }
+}
+@keyframes bounce-pulse {
+	0%, 5%, 10%, 15% { box-shadow: 0 0 30px #5fc, 0 0 45px #5fc inset; }
+	2.5%, 7.5%, 12.5% { box-shadow: 0 0 100px #5fc, 0 0 15px #5fc inset; }
+	20%, 40%, 60%, 80%, 100% { box-shadow: 0 0 30px #5fc, 0 0 45px #5fc inset; }
+	30%, 50%, 70%, 90% { box-shadow: 0 0 70px #5fc, 0 0 25px #5fc inset; }
+}
+@keyframes jump-pulse {
+	0%, 40%, 80%, 100% {
+		box-shadow: 0 0 30px #fff,
+		         	0 0 45px #fff inset;
+	}
+	20%, 60%, 70%, 90% {
+		box-shadow: 0 0 70px #fff,
+		         	0 0 25px #fff inset;
+	}
+	85% {
+		box-shadow: 0 0 100px #fff,
+		         	0 0 15px #fff inset;
+	}
+}
+@keyframes breathe-and-jump {
+	0%, 40%, 80%, 100% { height: 95px; transform: translateY(0); }
+	20%, 60%, 70%, 90% { height: 100px; transform: translateY(-5px); }
+	85% { height: 85px; transform: translateY(-20px); }
+}
+@keyframes shake-to-alert {
+	0%, 20%, 40%, 60%, 80%, 100% { transform: rotate(0) translateY(-5px); }
+	10%, 25%, 35%, 50%, 65% { transform: rotate(5deg) translateY(-5px); }
+	15%, 30%, 45%, 55%, 70% { transform: roate(-5deg) translateY(-5px); }
+}
+@keyframes blink {
+	0%, 100% { transform: scale(1, 0.05); }
+	5%, 95% { transform: scale(1, 1); }
+}
+@keyframes deactivate {
+	0% { border-color: #5fc; }
+	20%, 60% { border-color: #f55; }
+	40%, 80%, 100% { border-color: #fff; }
+}
+@keyframes deactivate-platform {
+	0% { box-shadow: 0 0 100px #5fc, 0 0 15px #5fc inset; }
+	40%, 80%, 100% { box-shadow: 0 0 15px #fff, 0 0 15px #fff inset; }
+	20%, 60% { box-shadow: 0 0 100px #f55, 0 0 15px #f55 inset; }
+}
+

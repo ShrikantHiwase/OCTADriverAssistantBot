@@ -1,0 +1,13 @@
+
+.startup-container {
+    @apply flex items-center justify-center min-h-screen bg-black;
+  }
+  
+  .logo {
+    @apply w-48 h-48 cursor-pointer transition-transform duration-300 hover:scale-110;
+  }
+  
+  .loading-video {
+    @apply w-full h-auto max-w-lg rounded-lg shadow-lg;
+  }
+  

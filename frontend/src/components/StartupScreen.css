@@ -1,0 +1,51 @@
+/* StartupScreen.css */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.startup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #753f0c, #382468, #294c7a, #407a10e7);
+  background-size: 300% 300%;
+  animation: gradientAnimation 8s ease infinite; /* Smooth background animation */
+  color: white;
+  text-align: center;
+}
+
+.logo {
+  width: 200px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* V.I.R.A. text styling */
+.logo-text {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.loading-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* Ensures the video fills the screen while maintaining aspect ratio */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
