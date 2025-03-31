@@ -46,3 +46,10 @@ RAG (Retrieval-Augmented Generation) for fault prediction
 Full backend integration for service dashboard & personalization.
 More vehicle functions & diagnostics connected to the voice assistant.
 Improved fault prediction accuracy with an expanded RAG database.
+![OCTA1](https://github.com/user-attachments/assets/0982da8c-bc6f-450d-ad97-a8d1d0ca51b1)![OCTA7](https://github.com/user-attachments/assets/099ef30f-a6da-4845-86d7-55f49fa36b5c)
+
+![OCTA2](https://github.com/user-attachments/assets/fdfdc40f-663c-4416-9a13-5ef36b1b6668)![OCTA6](https://github.com/user-attachments/assets/44e0fa03-7538-410a-a2f8-94796ee12e65)
+
+![OCTA3](https://github.com/user-attachments/assets/5b50266f-2716-4c8a-8e47-21ecceac3501)![OCTA4](https://github.com/user-attachments/assets/2a3d182c-450c-445b-908b-947893b6af4e)
+
+![OCTA9](https://github.com/user-attachments/assets/5f7afada-95cc-463a-a90e-ca5e24dc2699)
